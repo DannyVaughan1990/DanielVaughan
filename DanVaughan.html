@@ -5,102 +5,33 @@
     <title>Daniel Vaughan</title>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Abel|Archivo+Narrow|Barlow|Cabin|Courgette|Dancing+Script|Kanit|Questrial" rel="stylesheet">
-
+    <link rel="stylesheet" href="DanVaughan.css">
+    <link rel="stylesheet" href="animate.min.css">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
-   
+</head>
 
-    <style>
-
-    body{
-    background-image:url("images/omen-digital.jpg");
-    background-position: center;
-    color: red;
-     font-family: 'Barlow','arial', 'Cabin';
-    font-weight: bold;
-    font-size: 18px;
-    }
-
-    
-
-    #aboutme{
-        margin: 50px 40px 40px 50px;
-        padding: 50px 25px 25px 50px;
-        background-image: inherit;
-        color: grey;
-        text-shadow: 1px 1px 2px red;
-        font-family: 'Barlow';
-        font-size: 18px;
-    }
-
-    p{
-        background: rgba("204, 204, 204, 0.5");
-        color: red;
-        text-shadow: 1px 1px 2px black;
-    }
-    
-        .btn{
-            background-color: red;
-            color: black;
-            text-shadow: 1px 1px 2px red;
-        }
-
-        .dropdown-menu{
-            display: none;
-            color: red;
-            background-color: black;
-            min-width: 160px;
-            text-shadow: 1px 1px 2px grey;
-        }
-        
-        .dropdown-menu a{
-            color: red;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown-menu a:hover {
-            background-color: black;
-            
-        }
-        
-         h1{
-            background-color: rgba("204, 204, 204, 0.5");
-            color: black;
-            text-shadow: 1px 1px 2px red;
-            
-        }
-        
-        #dropdown{
-            margin-top: 40px;
-            margin-left: 50px;
-        }
-    </style>
-    </head>
-
-        <body>
+  <body>
      <div class="container-fluid">
 
      <div class="row">
       <div class="col-md-6 text-left">
           <div class="container">
 <div class="dropdown" id="dropdown">
- <button class="btn dropdown-toggle" data-toggle="dropdown">
+ <button class="btn dropdown-toggle animated-shake" data-toggle="dropdown">
    <span class="glyphicon glyphicon-menu-hamburger"></span></button>
      <ul class="dropdown-menu">
        <a href="danvaughan.html"><li>Home</li></a>
-       <a href="projects.html"><li>Projects</li></a>
        <a href="employment.html"><li>Employment History</li></a>
       </ul>
       </div>
 </div>
          </div>
       <div class="col-md-6 text-right text-uppercase">
-          <h1 class="text-super">Daniel Vaughan</h1>
+          <h1 class="text-super animated-shake">Daniel Vaughan</h1>
           <h4>Front-End Developer</h4>
 
         </div>
@@ -117,7 +48,7 @@
 
 <div class="carousel-inner">
     <div class="item active">
-      <img src="images/family.jpg"  width="100%">
+      <img src="images/family.jpg"  width="100%"height="80%">
     <div class="carousel-caption">
       <h3>First family holiday</h3>
     </div>
@@ -150,17 +81,25 @@
     </a>
 
 </div>
+</div>
 
     <div class="container-fluid">
     <div class="row">
 
         <div class="col-6 text-left" id="aboutme">
         <h1> A Little About Me</h1>
-            <p class="text-left">Hello<br/> My name is Daniel Vaughan (Dan). Welcome to my website.</p>
+            <p class="text-left" id="aboutme">Hello<br/> My name is Daniel Vaughan (Dan). Welcome to my website.</p>
 
             <p class="text-left">I am an aspiring web developer based in Birmingham UK. I have gained experience in the field of web development through the good people  at Freecode camp, where I learned how to code, and I made this website to show you what I have learnt so far.<br/> It gives me great satisfaction when I make websites that are responsive and beautiful. For me, deveopling websites is like playing the playstaion, I love it! This site was made using HTML5, CSS3, jQuery and Bootstrap 3. To find out more about me use the dropdown menu and click the links. </p>
         </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function(){
+      $("#aboutme").delay(1000).animate({ opacity: 1 }, 700);
+    });
+
+
+    </script>
 </body>
     </html>
