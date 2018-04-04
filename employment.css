@@ -3,6 +3,7 @@
 body{
 background-image:url("images/omen-digital.jpg");
 background-position: center;
+background-blend-mode: lighten;
 color: red;
  font-family: 'Barlow','arial', 'Cabin';
 font-size: 18px;
@@ -68,6 +69,7 @@ p{
 
     }
 
+
     p{
         background-color: black;
         text-align: left;
@@ -83,7 +85,7 @@ p{
 
      h1{
         background-color: rgba("204, 204, 204, 0.5");
-        color: black;
+        color: red;
         text-shadow: 1px 1px 2px black;
 
     }
@@ -97,6 +99,7 @@ p{
       float:left;
 
     }
+
 
     #right{
       float:right;
