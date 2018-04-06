@@ -17,7 +17,6 @@
   </head>
 <body>
      <div class="container-fluid">
-
      <div class="row">
       <div class="col-md-6 text-left">
      <div class="container">
@@ -42,32 +41,31 @@
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center" id="employment">Employment History</h1>
+            <h1 class="text-center text-super" id="employment">Employment History</h1>
         </div>
         </div>
     </div>
 
 
-<div class="container">
+<div class="container cf">
          <div class="row">
-    <div class="col-md-6 text-left">
-        <img width="400px" height="400px" class="image-responsive" style="margin-top: 102px;" onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)" alt="Image result for mueller europe ltd" src="http://copperalliance.eu/images/librariesprovider3/cae-logos---national-members-218x150/logo-mueller-europe.png?sfvrsn=2">
+    <div class="col-md-6 animation-element slide-left" id="left">
+        <img width="400px" height="400px" class="image-responsive" alt="Image result for mueller europe ltd" src="http://copperalliance.eu/images/librariesprovider3/cae-logos---national-members-218x150/logo-mueller-europe.png?sfvrsn=2">
              </div>
-    <div class="col-md-6 text-right"id="right">
+    <div class="col-md-6 animation-element slide-left" id="right">
         <p>Mueller Europe Ltd – Spin Machine Operator Current employer since Nov 2014:<br/>
 Daily responsibilities include the setting, programing and operate the spinner machine (MRB Schumag SB2200) taking gauges to ensure the tube is being drawn to the correct size and thickness, informing production support of the gauges and of any problems that arise, getting tools polished and keep my machine clean and tidy. Additional duties include using the overhead crane to move baskets and bundles and bundling.
-
  </p>
 </div>
     </div>
        </div>
 
-         <div class="container">
+         <div class="container cf">
          <div class="row">
-             <div class="col-md-6 text-left"id="left">
+             <div class="col-md-6 animation-element slide-left" id="left">
              <img width="400px" height="400px" class="image-responsive"  alt="Image result for equiniti kings norton birmingham" src="https://www.totaljobs.com/CompanyLogos/32faaa2fe37f43e4bc389b9714ed9f40.png">
              </div>
-             <div class="col-md-6 text-right"id="right">
+             <div class="col-md-6 animation-element slide-left"id="right">
              <p>Equiniti Ltd – Contact Center Agent – Feb 2014 – Nov 2014:<br/>
 Daily responsibilities include answering inbound calls from members of the NHS Pension Scheme and Mineworkers Pension Scheme, answering any questions they may have about there pension, entering data onto the system to update pensioners address, bank details and notifying the admin department that a member is passed away whilst maintaining a professional and polite manner. In between calls I try remain proactive by reading through my training file so that I may answer queries accurately and efficiently.
 </p>
@@ -75,12 +73,12 @@ Daily responsibilities include answering inbound calls from members of the NHS P
              </div>
          </div>
 
-         <div class="container">
+         <div class="container cf">
          <div class="row">
-             <div class="col-md-6 text-left"id="left">
+             <div class="col-md-6 animation-element animation-element slide-left"id="left">
             <img width="400px" height="400px" class="image-responsive"  alt="Taylors Estate Agents" src="http://a.mktgcdn.com/p/N22cHuX83Nyjw_E4m5kSUxQKcs_WkM745bXs7sOZZQw/300x300.png">
              </div>
-             <div class="col-md-6 text-right"id="right">
+             <div class="col-md-6 animation-element slide-left"id="right">
              <p>Taylors Estate Agents – Sales Negotiator – April 2013 – Feb 2014:<br/>
 Daily responsibilities include communication with applicants and clients via telephone and email. I am responsible for informing applicants about new properties on the market, booking viewings, booking appointments for the mortgage adviser, booking market appraisals telling potential vendors about the benefits of coming on the market with Taylors. I also negotiate offers, cross selling solicitors, mortgages and surveys. Other duties include canvassing popular areas to encourage people to put their houses on the market with Taylors. I use Microsoft applications on a daily basis to write letters, create spread sheets and send emails.
 </p>
@@ -90,10 +88,10 @@ Daily responsibilities include communication with applicants and clients via tel
 
          <div class="container">
          <div class="row">
-             <div class="col-md-6 text-left"id="left">
+             <div class="col-md-6 animation-element slide-left"id="left">
              <img src="images/trowl.jpg" class="image-responsive" width="400px" height="400px" alt="Plasterers Trowl">
              </div>
-             <div class="col-md-6 text-right"id="right">
+             <div class="col-md-6 animation-element slide-left"id="right">
              <p>Andy Cresswell Plastering and Building Contractor – Laborer – Sept 2012 – Apr 2013:<br/>
 Daily responsibilities include mixing up plaster, troweling over plaster making sure to fill every hole and making sure the wall is smooth. Other duties include assisting my boss with providing good customer service and satisfaction.
 </p>
@@ -101,12 +99,34 @@ Daily responsibilities include mixing up plaster, troweling over plaster making 
              </div>
          </div>
 <script>
-$(document).ready(function{
-  $("html").delay(1000).animate({ opacity: 1 }, 700);
-  $('container').click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 600);
-    return false;
-});
+$(document).ready(function(){
+
+  var $animation_elements = $('.animation-element');
+  var $window = $(window);
+
+  function check_if_in_view() {
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = (window_top_position + window_height);
+
+    $.each($animation_elements, function() {
+      var $element = $(this);
+      var element_height = $element.outerHeight();
+      var element_top_position = $element.offset().top;
+      var element_bottom_position = (element_top_position + element_height);
+
+      //check to see if this current container is within viewport
+      if ((element_bottom_position >= window_top_position) &&
+          (element_top_position <= window_bottom_position)) {
+        $element.addClass('in-view');
+      } else {
+        $element.removeClass('in-view');
+      }
+    });
+  }
+
+  $window.on('scroll resize', check_if_in_view);
+  $window.trigger('scroll');
 });
 </script>
 </body>

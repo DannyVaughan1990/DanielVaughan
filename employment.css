@@ -3,7 +3,6 @@
 body{
 background-image:url("images/omen-digital.jpg");
 background-position: center;
-background-blend-mode: lighten;
 color: red;
  font-family: 'Barlow','arial', 'Cabin';
 font-size: 18px;
@@ -70,6 +69,72 @@ p{
     }
 
 
+    .container{
+      position: relative;
+      padding: 25px;
+    }
+
+    .animation-element{
+      opacity: 0;
+      position: relative;
+    }
+    /*animation element sliding left*/
+    .animation-element.slide-left{
+      opacity: 0;
+      -moz-transition: all 500ms linear;
+      -webkit-transition: all 500ms linear;
+      -moz-transition: all 500ms linear;
+      transition: all 500ms linear;
+      -moz-transform: translate3d(-100px, 0px, 0px);
+      -webkit-transform:translate3d(-100, 0px, 0px);
+      -o-transform: translate(-100px, 0px);
+      -ms-transform: translate(-100px, 0px);
+      transform: translate3d(-100px, 0px, 0px);
+    }
+
+    .animation-element.slide-left.in-view{
+      opacity: 1;
+      -moz-transform: translate3d(0px, 0px,0px);
+      -webkit-transform: translate3d(0px, 0px, 0px);
+      -o-transform: translate3d(0px, 0px, 0px);
+      -ms-transform: translate3d(0px, 0px, 0px);
+      transform: translate3d(0px, 0px, 0px);
+    }
+
+    .animation-element.slide-left{
+      float: left;
+      width: 47%;
+      margin: 0% 1.5% 3% 1.5%;
+    }
+    .animation-element.slide-left:hover,
+    .animation-element.slide-left:active{
+      box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.25);
+    }
+
+    .animiation-element.slide-left:nth-of-type(odd){
+      width: 48.5&;
+      margin: 0% 1.5% 3.0% 0%;
+    }
+
+    .animation-element.slide-left:nth-of-type(even){
+      width: 48.5%;
+      margin: 0% 0% 3.0% 1.5%;
+    }
+
+    @media screen and (max-width: 678px){
+  /*testimonials*/
+  .animation-element.slide-left,
+  .animation-element.slide-left:nth-of-type(odd),
+  .animation-element.slide-left:nth-of-type(even){
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+  }
+  .animation-element.slide-left{
+      text-align: center;
+      float: none;
+    }
+
+
     p{
         background-color: black;
         text-align: left;
@@ -85,7 +150,7 @@ p{
 
      h1{
         background-color: rgba("204, 204, 204, 0.5");
-        color: red;
+        color: black;
         text-shadow: 1px 1px 2px black;
 
     }
@@ -97,12 +162,9 @@ p{
 
     #left{
       float:left;
-
     }
-
 
     #right{
       float:right;
-      margin-top:100px;
-
+      margin-top: 150px;
     }
